@@ -1,0 +1,8 @@
+For Using Testdatda, simply copy the textfiles with the beamer coordinates into your projectfolder
+these files must be named 
+geraetekoordinaten1.txt
+geraetekoordinaten2.txt
+geraetekoordinaten3.txt
+geraetekoordinaten4.txt
+
+You can get the coordinate files from the share folder ;-)
