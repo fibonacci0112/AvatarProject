@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 8
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,8 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
-  m_UseRadianceAmbientProbe: 0
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -55,10 +54,11 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
-    m_AtlasSize: 1024
+    m_TextureWidth: 1024
+    m_TextureHeight: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -160,7 +160,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 3163ddbd43838e244aa5ed466c5825f0, type: 2}
   m_StaticBatchInfo:
@@ -261,7 +260,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 3163ddbd43838e244aa5ed466c5825f0, type: 2}
   m_StaticBatchInfo:
@@ -427,6 +425,103 @@ MonoBehaviour:
   debugDrawRadius: 1
   _connectivityRadius: 20
   surface: {fileID: 1987348126}
+--- !u!1001 &369787560
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4282816752555896, guid: 36bd57fed1cfa214e857bf7f7b306fc4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.6314101
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282816752555896, guid: 36bd57fed1cfa214e857bf7f7b306fc4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.4854555
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282816752555896, guid: 36bd57fed1cfa214e857bf7f7b306fc4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.860054
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282816752555896, guid: 36bd57fed1cfa214e857bf7f7b306fc4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282816752555896, guid: 36bd57fed1cfa214e857bf7f7b306fc4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282816752555896, guid: 36bd57fed1cfa214e857bf7f7b306fc4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282816752555896, guid: 36bd57fed1cfa214e857bf7f7b306fc4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282816752555896, guid: 36bd57fed1cfa214e857bf7f7b306fc4, type: 2}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 36bd57fed1cfa214e857bf7f7b306fc4, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &369787561 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1121215656317614, guid: 36bd57fed1cfa214e857bf7f7b306fc4,
+    type: 2}
+  m_PrefabInternal: {fileID: 369787560}
+--- !u!114 &369787562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 369787561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13405f1456e578a42a79020d714e2594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sayMono: {fileID: 0}
+  scriptObject: {fileID: 11500000, guid: 2089d14017b21c842adf6c06a14cc86a, type: 3}
+  scriptAction: {fileID: 0}
+  actionEntrys:
+  - actionName: sage
+    script: {fileID: 11500000, guid: 2089d14017b21c842adf6c06a14cc86a, type: 3}
+  - actionName: 
+    script: {fileID: 0}
+  - actionName: 
+    script: {fileID: 0}
+  - actionName: 
+    script: {fileID: 0}
+  ActionEntrysE:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: e0a5b71fe4e8e444dbc6626b693fe02b, type: 3}
+        m_MethodName: 
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 11500000, guid: 3cc6c71177f33ae4cb343522c32446d2, type: 3}
+        m_MethodName: set_name
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &689701399
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,7 +931,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 3163ddbd43838e244aa5ed466c5825f0, type: 2}
   m_StaticBatchInfo:
@@ -1061,7 +1155,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1419,7 +1512,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: e4eb0e227f9abb74a8c3d56b85b13ad1, type: 2}
   m_StaticBatchInfo:
@@ -1589,7 +1681,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 3163ddbd43838e244aa5ed466c5825f0, type: 2}
   m_StaticBatchInfo:
