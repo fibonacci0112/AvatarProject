@@ -5,39 +5,47 @@ using UnityEngine.Events;
 
 public class HTWAvatar : MonoBehaviour {
 
-	public SayMono sayMono;
-	public Object scriptObject;
-	public Action scriptAction;
+	// public SayMono sayMono;
+	// public Object scriptObject;
+	// public Action scriptAction;
+	// public UnityEvent ActionEntrysE;
 	public ActionEntry[] actionEntrys;
-	public UnityEvent ActionEntrysE;
+	public GameObject[] actionsObjects;
 
 	void perform(string _actionName)
+	{
+		foreach (GameObject go in actionsObjects)
+		{
+			if (go.name == _actionName) 
+			{
+				go.getComponent<Action> ().perform ();// .objectWithActionScript.getComponent<Action> ().perform ();
+			}
+		}
+
+		foreach (ActionEntry a in actionEntrys)
+		{
+			if (a.actionName == _actionName) 
+			{
+				//a.objectWithActionScript.getComponent<Action> ().perform ();
+			}
+		}
+	}
+
+	void perform(string _actionName, string _parameter)
 	{
 		foreach (ActionEntry a in actionEntrys)
 		{
 			if (a.actionName == _actionName) 
 			{
-				//a.script.perfor
+				//a.objectWithActionScript.getComponent<Action> ().perform (_parameter);
 			}
 		}
-	}
-
-	// Use this for initialization
-	void Start () {
-
-		scriptAction = GetComponent<Action>();
-		scriptAction.perform ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }
 
 [System.Serializable]
-public class ActionEntry
+public class ActionEntry : MonoBehaviour
 {
 	public string actionName;
-	public Object script;
+	public GameObject objectWithActionScript;
 }
