@@ -5,33 +5,45 @@ using UnityEngine.Events;
 
 public class HTWAvatar : MonoBehaviour {
 
-	public SayMono sayMono;
-	public Object scriptObject;
-	public Action scriptAction;
+	//public SayMono sayMono;
+	//public Object scriptObject;
+	//public Action scriptAction;
 	public ActionEntry[] actionEntrys;
-	public UnityEvent ActionEntrysE;
+	//public UnityEvent ActionEntrysE;
 
-	void perform(string _actionName)
+	public void perform(string _actionName)
 	{
-		foreach (ActionEntry a in actionEntrys)
+		foreach (ActionEntry ae in actionEntrys)
 		{
-			if (a.actionName == _actionName) 
+			if (ae.actionName == _actionName) 
 			{
-				//a.script.perfor
+				Debug.Log("Aktion gefunden: "+ ae.gO.GetComponent<Action> ().GetType());
+				ae.gO.GetComponent<Action> ().perform();
 			}
 		}
 	}
 
-	// Use this for initialization
-	void Start () {
-
-		scriptAction = GetComponent<Action>();
-		scriptAction.perform ();
+	public void perform(string _actionName, string _parameter)
+	{
+		foreach (ActionEntry ae in actionEntrys)
+		{
+			if (ae.actionName == _actionName) 
+			{
+				Debug.Log("Aktion gefunden, Parameter: "+ _parameter +" übergeben");
+				ae.gO.GetComponent<Action> ().perform(_parameter);
+			}
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void perform(string _actionName, string[] _parameters)
+	{
+		foreach (ActionEntry ae in actionEntrys)
+		{
+			if (ae.actionName == _actionName) 
+			{
+				ae.gO.GetComponent<Action> ().perform(_parameters);
+			}
+		}
 	}
 }
 
@@ -39,5 +51,5 @@ public class HTWAvatar : MonoBehaviour {
 public class ActionEntry
 {
 	public string actionName;
-	public Object script;
+	public GameObject gO;
 }

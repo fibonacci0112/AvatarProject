@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class Action : MonoBehaviour{
 
-	public void perform()
+	public virtual void perform()
 	{
-	
+		Debug.Log ("No Override here");
 	}
-
-	public void perform(string[] parameters)
-	{
 		
-	}
-
-	public static void test()
+	public virtual void perform(string parameters)
 	{
-		
+		Debug.Log ("No Override here");
 	}
 
+	public virtual void perform(string[] parameters)
+	{
+		Debug.Log ("No Override here");
+	}
 }
