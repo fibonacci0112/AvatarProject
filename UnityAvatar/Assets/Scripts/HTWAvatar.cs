@@ -5,46 +5,44 @@ using UnityEngine.Events;
 
 public class HTWAvatar : MonoBehaviour {
 
-	// public SayMono sayMono;
-	// public Object scriptObject;
-	// public Action scriptAction;
-	// public UnityEvent ActionEntrysE;
 	public ActionEntry[] actionEntrys;
-	public GameObject[] actionsObjects;
 
-	void perform(string _actionName)
+	public void perform(string _actionName)
 	{
-		foreach (GameObject go in actionsObjects)
+		foreach (ActionEntry ae in actionEntrys)
 		{
-			if (go.name == _actionName) 
+			if (ae.actionName == _actionName) 
 			{
-				go.getComponent<Action> ().perform ();// .objectWithActionScript.getComponent<Action> ().perform ();
-			}
-		}
-
-		foreach (ActionEntry a in actionEntrys)
-		{
-			if (a.actionName == _actionName) 
-			{
-				//a.objectWithActionScript.getComponent<Action> ().perform ();
+				ae.objectWithActionScript.gameObject.GetComponent<Action> ().perform ();
 			}
 		}
 	}
 
-	void perform(string _actionName, string _parameter)
+	public void perform(string _actionName, string _parameter)
 	{
-		foreach (ActionEntry a in actionEntrys)
+		foreach (ActionEntry ae in actionEntrys)
 		{
-			if (a.actionName == _actionName) 
+			if (ae.actionName == _actionName) 
 			{
-				//a.objectWithActionScript.getComponent<Action> ().perform (_parameter);
+				ae.objectWithActionScript.gameObject.GetComponent<Action> ().perform (_parameter);
+			}
+		}
+	}
+
+	public void perform(string _actionName, string[] _parameter)
+	{
+		foreach (ActionEntry ae in actionEntrys)
+		{
+			if (ae.actionName == _actionName) 
+			{
+				ae.objectWithActionScript.gameObject.GetComponent<Action> ().perform (_parameter);
 			}
 		}
 	}
 }
 
 [System.Serializable]
-public class ActionEntry : MonoBehaviour
+public class ActionEntry
 {
 	public string actionName;
 	public GameObject objectWithActionScript;

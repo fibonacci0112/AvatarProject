@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Action : MonoBehaviour{
 
-	public void perform()
+	public virtual void perform()
 	{
-	
+		Debug.Log("The method in your script needs the statement: 'override'");
 	}
 
-	public void perform(string[] parameters)
+	public virtual void perform(string parameters)
 	{
-		
+		Debug.Log("The method in your script needs the statement: 'override'");
 	}
 
-	public static void test()
+	public virtual void perform(string[] parameters)
 	{
-		
+		Debug.Log("The method in your script needs the statement: 'override'");
 	}
 
 }

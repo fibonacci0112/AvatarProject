@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class Say : Action {
 
-	public void perform(string _param)
+	public string preConfig = "nothing";
+
+	public override void perform(string _param)
 	{
 		Debug.Log("Avatar says: "+ _param);
+	}
+
+	public override void perform()
+	{
+		Debug.Log("Avatar says "+preConfig+".");
 	}
 
 }

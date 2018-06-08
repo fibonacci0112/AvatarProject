@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StandStill : Action {
 
-	void perform()
+	public override void perform()
 	{
 		Debug.Log ("Stehe still");
 	}

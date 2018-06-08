@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Patroling : Action {
 
-	public void perform()
+	public override void perform()
 	{
 		Debug.Log("Patroling");
 	}
