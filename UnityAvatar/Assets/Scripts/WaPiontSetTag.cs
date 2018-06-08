@@ -30,6 +30,7 @@ public class WaPiontSetTag : MonoBehaviour {
         waypiont6.name = "waypiont6";
         waypiont7.name = "waypiont7";
         waypiont8.name = "waypiont8";
+        waypiont1.name = "Zusätzlicher name";
 
         Debug.Log("Names of waypionts:" + waypiont1.name + waypiont2.name + waypiont3.name + waypiont4.name + waypiont5.name + waypiont6.name+ waypiont7.name + waypiont8.name);
     }

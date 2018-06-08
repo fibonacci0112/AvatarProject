@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class FreeRandomPatrol : MonoBehaviour {
-
+    Animator n_animator;
+    bool walking = false;
     public float wanderRadius;
     public float wanderTimer;
 
@@ -17,6 +18,7 @@ public class FreeRandomPatrol : MonoBehaviour {
 
   public void Start()
     {
+        n_animator = GetComponent<Animator>();
         surface.BuildNavMesh();
     }
     void OnEnable()
@@ -28,21 +30,34 @@ public class FreeRandomPatrol : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        
+
         timer += Time.deltaTime;
 
         if (timer >= wanderTimer)
         {
+            
             Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
+            n_animator.SetBool("walking", true);
             agent.SetDestination(newPos);
             timer = 0;
+
+            
         }
+       
+       
+
+
+       
     }
 
     public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
     {
+
         Vector3 randDirection = Random.insideUnitSphere * dist;
 
         randDirection += origin;
+        
 
         NavMeshHit navHit;
 

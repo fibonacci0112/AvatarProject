@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:UnityAvatar/Assets/Prefabs/ActionPrefabs/Action_Say.prefab.meta
 guid: ee66bc60af188fc4cb663afc5ac6c0a4
 timeCreated: 1528459999
 licenseType: Pro
+=======
+guid: e7b2be1cbf1fa0c4e8f01df93b470fcc
+timeCreated: 1525341408
+licenseType: Free
+>>>>>>> 6b0bd696fd9d2af13a4610e95cea874cd15e761f:UnityAvatar/Assets/KI Teil mit Animation/Assets/Materials/defaultMat.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 100100000

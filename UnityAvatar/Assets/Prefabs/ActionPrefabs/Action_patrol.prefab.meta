@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:UnityAvatar/Assets/Prefabs/ActionPrefabs/Action_patrol.prefab.meta
 guid: e6ac4f99b2284ca419090709ccb4b014
 timeCreated: 1528460922
 licenseType: Pro
+=======
+guid: 5f2fa27c98b01f64ba50b66b8e189e88
+timeCreated: 1523366078
+licenseType: Free
+>>>>>>> 6b0bd696fd9d2af13a4610e95cea874cd15e761f:UnityAvatar/Assets/KI Teil mit Animation/Assets/Materials/NPC.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 100100000

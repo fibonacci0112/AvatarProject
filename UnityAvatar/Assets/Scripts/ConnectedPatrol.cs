@@ -30,10 +30,13 @@ namespace Assets.Code
         bool _waiting;
         float _waitTimer;
         int _waypointsVisited;
+        bool walking = true;
+        Animator n_animator;
 
         // Use this for initialization
         public void Start()
         {
+            n_animator = GetComponent<Animator>();
             _navMeshAgent = this.GetComponent<NavMeshAgent>();
 
             if (_navMeshAgent == null)
@@ -77,6 +80,7 @@ namespace Assets.Code
             //Check if we're close to the destination.
             if (_travelling && _navMeshAgent.remainingDistance <= 1.0f)
             {
+
                 _travelling = false;
                 _waypointsVisited++;
 
@@ -84,6 +88,7 @@ namespace Assets.Code
                 if (_patrolWaiting)
                 {
                     _waiting = true;
+                    
                     _waitTimer = 0f;
                 }
                 else
@@ -95,6 +100,8 @@ namespace Assets.Code
             //Instead if we're waiting.
             if (_waiting)
             {
+                n_animator.SetBool("walking", false);
+
                 _waitTimer += Time.deltaTime;
                 if (_waitTimer >= _totalWaitTime)
                 {
@@ -113,10 +120,17 @@ namespace Assets.Code
                 _previousWaypoint = _currentWaypoint;
                 _currentWaypoint = nextWaypoint;
             }
+            
 
             Vector3 targetVector = _currentWaypoint.transform.position;
             _navMeshAgent.SetDestination(targetVector);
             _travelling = true;
+            if (_travelling)
+            {
+                n_animator.SetBool("walking", true);
+
+            }
+
         }
     }
 }
