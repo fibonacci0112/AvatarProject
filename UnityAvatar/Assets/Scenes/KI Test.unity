@@ -483,45 +483,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13405f1456e578a42a79020d714e2594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sayMono: {fileID: 0}
-  scriptObject: {fileID: 11500000, guid: 2089d14017b21c842adf6c06a14cc86a, type: 3}
-  scriptAction: {fileID: 0}
-  actionEntrys:
-  - actionName: sage
-    script: {fileID: 11500000, guid: 2089d14017b21c842adf6c06a14cc86a, type: 3}
-  - actionName: 
-    script: {fileID: 0}
-  - actionName: 
-    script: {fileID: 0}
-  - actionName: 
-    script: {fileID: 0}
-  ActionEntrysE:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: e0a5b71fe4e8e444dbc6626b693fe02b, type: 3}
-        m_MethodName: 
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 11500000, guid: 3cc6c71177f33ae4cb343522c32446d2, type: 3}
-        m_MethodName: set_name
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  actionEntrys: []
+  actionsObjects:
+  - {fileID: 1342327068331578, guid: 2a15b084d55ab2641b11a376db42f7aa, type: 2}
+  - {fileID: 1194964147166096, guid: 03b8aa016c4da334b83c063db87a67da, type: 2}
 --- !u!1 &689701399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,7 +1330,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 09ca7a077814a424cbd5acf074437755, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!4 &1987348127
 Transform:
   m_ObjectHideFlags: 0

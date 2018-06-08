@@ -18,7 +18,7 @@ public class HTWAvatar : MonoBehaviour {
 		{
 			if (go.name == _actionName) 
 			{
-				go.getComponent<Action> ().perform ();// .objectWithActionScript.getComponent<Action> ().perform ();
+				//go.getComponent<Action> ().perform ();// .objectWithActionScript.getComponent<Action> ().perform ();
 			}
 		}
 
