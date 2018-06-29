@@ -8,33 +8,26 @@ public class EventTrigger : MonoBehaviour
     // Use this for initialization
     public GameObject Player;
     bool random = false;
-
-
+    Animator n_animator;
+    bool differentAn = false;
+    bool walking = true;
+    GameObject AnimatedObject;
+    public Animation youranimation;
     void Start()
     {
-        
+        n_animator = GetComponent<Animator>();
 
     }
 
 
+    
     void OnTriggerEnter(Collider c)
     {
-        if (c.gameObject.tag == "Player")
+        if (c.gameObject.CompareTag("Player"))
         {
-
-            Assets.Code.ConnectedPatrol connPatrol = c.gameObject.GetComponent<Assets.Code.ConnectedPatrol>();
-            connPatrol.enabled = false;
-            FreeRandomPatrol randomPatrol = c.gameObject.GetComponent<FreeRandomPatrol>();
-            randomPatrol.enabled = true;
+            n_animator.SetTrigger("zombie");
         }
-
-       
-              
-
-
-        
-
-       
-
     }
+   
+
 }

@@ -6,6 +6,7 @@ public class WayPoint : MonoBehaviour {
 
     [SerializeField]
     protected float debugDrawRadius = 1.0F;
+	public string[] Names;
 
     public virtual void OnDrawGizmos()
     {

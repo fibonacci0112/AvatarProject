@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class WaPiontSetTag : MonoBehaviour {
     public GameObject waypiont1;
@@ -11,28 +12,27 @@ public class WaPiontSetTag : MonoBehaviour {
     public GameObject waypiont6;
     public GameObject waypiont7;
     public GameObject waypiont8;
+    List<GameObject> myList = new List<GameObject>();
     // Use this for initialization
-    void Start () {
-       /* waypiont1.tag = "waypiont1";
-        waypiont2.tag = "waypiont2";
-        waypiont3.tag = "waypiont3";
-        waypiont4.tag = "waypiont4";
-        waypiont5.tag = "waypiont5";
-        waypiont6.tag = "waypiont6";
-        waypiont7.tag = "waypiont7";
-        waypiont8.tag = "waypiont8";*/
 
-        waypiont1.name = "waypiont1";
-        waypiont2.name = "waypiont2";
+    GameObject temp;
+
+    void Start () {
+
+
+        myList.AddRange(GameObject.FindGameObjectsWithTag("Waypoint"));
+
+        /*waypiont2.name = "waypiont2";
         waypiont3.name = "waypiont3";
         waypiont4.name = "waypiont4";
         waypiont5.name = "waypiont5";
         waypiont6.name = "waypiont6";
         waypiont7.name = "waypiont7";
         waypiont8.name = "waypiont8";
-        waypiont1.name = "Zusätzlicher name";
+        waypiont1.name = "Zusätzlicher name";*/
 
-        Debug.Log("Names of waypionts:" + waypiont1.name + waypiont2.name + waypiont3.name + waypiont4.name + waypiont5.name + waypiont6.name+ waypiont7.name + waypiont8.name);
+        temp = myList.Where(gameObject => gameObject.name == "chairs").SingleOrDefault();
+       // Debug.Log("Names of waypionts:" + temp.name );
     }
 	
 	// Update is called once per frame
