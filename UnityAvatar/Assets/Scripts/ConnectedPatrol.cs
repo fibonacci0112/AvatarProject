@@ -36,7 +36,7 @@ namespace Assets.Code
         // Use this for initialization
         public void Start()
         {
-            n_animator = GetComponent<Animator>();
+            n_animator = GetComponentInChildren<Animator>();
             _navMeshAgent = this.GetComponent<NavMeshAgent>();
 
             if (_navMeshAgent == null)
@@ -95,6 +95,10 @@ namespace Assets.Code
                 {
                     SetDestination();
                 }
+            }
+            else
+            {
+                transform.position = _navMeshAgent.transform.position;
             }
 
             //Instead if we're waiting.

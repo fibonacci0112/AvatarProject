@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Linq;
 
 public class NPCSimplePatrol : MonoBehaviour
 {
     //Dictates whether the agent waits on each node.
-    [SerializeField]
-    bool _patrolWaiting;
+    
+    bool _patrolWaiting = true;
 
     //The total time we wait at each node.
     [SerializeField]
@@ -19,7 +20,8 @@ public class NPCSimplePatrol : MonoBehaviour
 
     //The list of all patrol nodes to visit.
     [SerializeField]
-    List<WayPoint> _patrolPoints;
+   // List<WayPoint> _patrolPoints;
+    List<GameObject> _patrolPoints = new List<GameObject>();
 
     //Private variables for base behaviour.
     NavMeshAgent _navMeshAgent;
@@ -28,19 +30,25 @@ public class NPCSimplePatrol : MonoBehaviour
     bool _waiting;
     bool _patrolForward;
     float _waitTimer;
+    GameObject _npc;
+    private float timer = 0.5f;
 
+    Animator n_animator;
     // Use this for initialization
     public void Start()
     {
-        _navMeshAgent = this.GetComponent<NavMeshAgent>();
 
+        n_animator = GetComponentInChildren<Animator>();
+        _patrolPoints.AddRange(GameObject.FindGameObjectsWithTag("PlayerPoint"));
+        _navMeshAgent = this.GetComponent<NavMeshAgent>();
+        _npc = this.gameObject;
         if (_navMeshAgent == null)
         {
             Debug.LogError("The nav mesh agent component is not attached to " + gameObject.name);
         }
         else
         {
-            if (_patrolPoints != null && _patrolPoints.Count >= 2)
+            if (_patrolPoints != null && _patrolPoints.Count >= 0)
             {
                 _currentPatrolIndex = 0;
                 SetDestination();
@@ -58,7 +66,14 @@ public class NPCSimplePatrol : MonoBehaviour
         //Check if we're close to the destination.
         if (_travelling && _navMeshAgent.remainingDistance <= 1.0f)
         {
+            if (_travelling)
+            {
+                n_animator.SetBool("walking", false);
+            }
             _travelling = false;
+        
+
+
 
             //If we're going to wait, then wait.
             if (_patrolWaiting)
@@ -71,14 +86,18 @@ public class NPCSimplePatrol : MonoBehaviour
                 ChangePatrolPoint();
                 SetDestination();
             }
+
         }
+        
 
         //Instead if we're waiting.
         if (_waiting)
         {
+            n_animator.SetBool("walking", false);
             _waitTimer += Time.deltaTime;
             if (_waitTimer >= _totalWaitTime)
             {
+               
                 _waiting = false;
 
                 ChangePatrolPoint();
@@ -94,6 +113,15 @@ public class NPCSimplePatrol : MonoBehaviour
             Vector3 targetVector = _patrolPoints[_currentPatrolIndex].transform.position;
             _navMeshAgent.SetDestination(targetVector);
             _travelling = true;
+           
+            if (_travelling)
+            {
+                
+                n_animator.SetBool("walking", true);
+                
+
+            }
+
         }
     }
 

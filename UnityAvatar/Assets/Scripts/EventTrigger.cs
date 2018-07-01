@@ -15,7 +15,7 @@ public class EventTrigger : MonoBehaviour
     public Animation youranimation;
     void Start()
     {
-        n_animator = GetComponent<Animator>();
+        n_animator = GetComponentInChildren<Animator>();
 
     }
 
