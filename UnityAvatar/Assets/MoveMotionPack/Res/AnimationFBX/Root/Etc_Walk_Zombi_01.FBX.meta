@@ -237,7 +237,33 @@ ModelImporter:
     13700000: man01
     13700002: man02
     13700004: man03
-  externalObjects: {}
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 09 - Default
+    second: {fileID: 2100000, guid: abc9647384c31234a8b2ee2a72f9c14b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: a41a0d53896dffc4f91643f01f6d2c6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\uBA38\uB9AC"
+    second: {fileID: 2100000, guid: d7709d7921efa6e42a690013d7a2831e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\uC0C1\uCCB4"
+    second: {fileID: 2100000, guid: ad053871b53f90248936523153f19dc3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\uD558\uCCB4"
+    second: {fileID: 2100000, guid: 7ff72351430690048b4e9797efeab7c4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -250,9 +276,20 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'Bip01 L Thigh' : position error
+      = 10.591195 mm\n\t'Bip01 R Thigh' : position error = 9.761587 mm\n"
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'Bip01 Spine' has translation animation that
+      will be discarded.\n\t'Bip01 Spine' is inbetween humanoid transforms and has
+      rotation animation that will be discarded.\n\t'Bip01 Neck' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'Bip01 L Clavicle'
+      has translation animation that will be discarded.\n\t'Bip01 R Clavicle' has
+      translation animation that will be discarded.\n\t'Bip01 L Thigh' has translation
+      animation that will be discarded.\n\t'Bip01 R Thigh' has translation animation
+      that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
