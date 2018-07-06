@@ -47,6 +47,7 @@ public class Dictation : MonoBehaviour
             Debug.LogFormat("Dictation result: {0}", text);
             m_Recognitions.text += text + "\n";
             KeywordProcessing(text);
+            events.output = text;
         };
 
         m_DictationRecognizer.DictationHypothesis += (text) =>

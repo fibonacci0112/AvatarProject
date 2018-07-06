@@ -9,11 +9,13 @@ public class events : MonoBehaviour {
     public delegate void voiceO(string text);
     public static event voiceI voiceIn;
     public static event voiceO voiceOut;
+    public static string output;
 
     // Use this for initialization
     void Start ()
     {
         Debug.Log("press a and b for voice input and output");
+        output = "";
 	}
 	
 	// Update is called once per frame
@@ -28,7 +30,7 @@ public class events : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.B))
         {
             if (voiceOut != null)
-                voiceOut("blaaaaa");
+                voiceOut(output);
         }
     }
 }
