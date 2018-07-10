@@ -40816,6 +40816,7 @@ GameObject:
   - component: {fileID: 689701401}
   - component: {fileID: 689701400}
   - component: {fileID: 689701402}
+  - component: {fileID: 689701403}
   m_Layer: 0
   m_Name: wp_carpet
   m_TagString: Waypoint
@@ -40866,6 +40867,19 @@ MonoBehaviour:
   Names: []
   _connectivityRadius: 20
   surface: {fileID: 1987348126}
+--- !u!114 &689701403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 689701399}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137d76136a260854f908f2ef340fdd16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameListp:
+  - teppich
 --- !u!4 &691565497
 Transform:
   m_ObjectHideFlags: 0
@@ -65836,7 +65850,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1213078276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6, y: 7.1, z: -59.9}
+  m_LocalPosition: {x: -2.6, y: 7.1, z: -61.8}
   m_LocalScale: {x: 5.103849, y: 5.1038504, z: 5.1038504}
   m_Children: []
   m_Father: {fileID: 0}
@@ -66495,6 +66509,7 @@ GameObject:
   - component: {fileID: 1269222798}
   - component: {fileID: 1269222797}
   - component: {fileID: 1269222796}
+  - component: {fileID: 1269222799}
   m_Layer: 0
   m_Name: wp_west
   m_TagString: Waypoint
@@ -66545,6 +66560,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1269222799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1269222795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137d76136a260854f908f2ef340fdd16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameListp:
+  - westen
 --- !u!1001 &1270181400
 Prefab:
   m_ObjectHideFlags: 0
@@ -72690,6 +72718,7 @@ GameObject:
   - component: {fileID: 1357865230}
   - component: {fileID: 1357865229}
   - component: {fileID: 1357865228}
+  - component: {fileID: 1357865231}
   m_Layer: 0
   m_Name: wp_ecke
   m_TagString: Waypoint
@@ -72740,6 +72769,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1357865231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1357865227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137d76136a260854f908f2ef340fdd16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameListp:
+  - ecke
 --- !u!4 &1358872433
 Transform:
   m_ObjectHideFlags: 0
@@ -109325,6 +109367,7 @@ GameObject:
   - component: {fileID: 2128607700}
   - component: {fileID: 2128607699}
   - component: {fileID: 2128607701}
+  - component: {fileID: 2128607702}
   m_Layer: 0
   m_Name: wp_table
   m_TagString: Waypoint
@@ -109376,6 +109419,19 @@ MonoBehaviour:
   Names: []
   _connectivityRadius: 20
   surface: {fileID: 1987348126}
+--- !u!114 &2128607702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128607698}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137d76136a260854f908f2ef340fdd16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameListp:
+  - tisch
 --- !u!1 &2131785015
 GameObject:
   m_ObjectHideFlags: 0
