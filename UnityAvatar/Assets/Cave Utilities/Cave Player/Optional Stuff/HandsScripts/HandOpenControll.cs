@@ -55,11 +55,11 @@ public class HandOpenControll : MonoBehaviour {
 
                 if (!this.oldHandClosed && this.handClosed)
                 {
-                    leftHandAnimator.Play("Hand_Right_grab");
+                    rightHandAnimator.Play("Hand_Right_grab");
                 }
                 if (this.oldHandClosed && !this.handClosed)
                 {
-                    leftHandAnimator.Play("Hand_Right_normal_state");
+                    rightHandAnimator.Play("Hand_Right_normal_state");
                 }
             }
 		}
