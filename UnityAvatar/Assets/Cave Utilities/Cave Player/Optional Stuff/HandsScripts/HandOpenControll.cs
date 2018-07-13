@@ -4,14 +4,19 @@ using System.Collections;
 /*This skript is a Helper which represents if the Hands are open or Closed*/
 public class HandOpenControll : MonoBehaviour {
 
+    public Animator leftHandAnimator;
+    public Animator rightHandAnimator;
+
 	/*Indicates if this is the left or the right hand*/
 	public bool isLeftHand = false; 
 
 	/*Indicates if the hand is Closed*/
 	public bool handClosed = false;
 
-	/*The Instance of the Wii Controller*/
-	private WiiController wii;
+    public bool oldHandClosed = false;
+
+    /*The Instance of the Wii Controller*/
+    private WiiController wii;
 
 	/*Indicates if the Wii is used*/
 	private bool wiiInUse;
@@ -29,11 +34,34 @@ public class HandOpenControll : MonoBehaviour {
 	void Update () {
 		if (wiiInUse) {
 			if(isLeftHand){
-				this.handClosed = wii.holdButtonA();
+                this.oldHandClosed = this.handClosed;
+
+                this.handClosed = wii.holdButtonA();
+
+                if (!this.oldHandClosed && this.handClosed)
+                {
+                    leftHandAnimator.Play("Hand_Left_grab");
+                }
+                if (this.oldHandClosed && !this.handClosed)
+                {
+                    leftHandAnimator.Play("Hand_Left_normal_state");
+                }
 			}
 			else{
-				this.handClosed = wii.holdButtonB();
-			}
+
+                this.oldHandClosed = this.handClosed;
+
+                this.handClosed = wii.holdButtonB();
+
+                if (!this.oldHandClosed && this.handClosed)
+                {
+                    leftHandAnimator.Play("Hand_Right_grab");
+                }
+                if (this.oldHandClosed && !this.handClosed)
+                {
+                    leftHandAnimator.Play("Hand_Right_normal_state");
+                }
+            }
 		}
 	}
 }
