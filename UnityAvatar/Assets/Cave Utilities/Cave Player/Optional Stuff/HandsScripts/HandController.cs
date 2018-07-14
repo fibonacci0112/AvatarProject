@@ -17,7 +17,9 @@ public class HandController : MonoBehaviour {
 	/*indicates if the kinect is used*/
 	private bool kinectInUse = false;
 
-	public Vector3 testPos;
+    public Transform lookTarget;
+
+    public Vector3 testPos;
 
 
 	/*Inistializes the controllers*/
@@ -34,7 +36,9 @@ public class HandController : MonoBehaviour {
 	void FixedUpdate () {
 		isClosed = handIsClosed ();
 
-		if (kinectInUse) {
+
+
+        if (kinectInUse) {
 			Vector3 pos = new Vector3();
 			if(isLeft){
 
@@ -49,7 +53,14 @@ public class HandController : MonoBehaviour {
 		
 			this.GetComponent<Rigidbody>().MovePosition(pos);
 			this.transform.position = pos;
-		}
+
+            Vector3 relativePos = this.lookTarget.position - this.transform.position;
+            Quaternion rotation = Quaternion.LookRotation(relativePos);
+            this.transform.rotation = rotation;
+
+
+
+        }
 	}
 
 	/*When the object collides with another this cheks if the objectis collided with an object with the "Wall" tag and sets the according state*/
