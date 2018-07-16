@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Waypoint
   - PlayerPoint
+  - PlayerHand
+  - Right
+  - Bottom
+  - Front
+  - Left
+  - KI
   layers:
   - Default
   - TransparentFX
