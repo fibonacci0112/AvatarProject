@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KI_Event_Trigger : MonoBehaviour {
+    
 
 	void Update () {
         if (Input.GetKeyDown("t"))
@@ -15,6 +16,10 @@ public class KI_Event_Trigger : MonoBehaviour {
             EventManager.TriggerEvent("KI_patrol");
         }
 
+        
+       
+
 
     }
+   
 }
