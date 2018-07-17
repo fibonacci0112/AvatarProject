@@ -15,6 +15,10 @@ public class KI_Event_Trigger : MonoBehaviour {
         {
             EventManager.TriggerEvent("KI_patrol");
         }
+        if(Input.GetKeyDown("u"))
+        {
+            EventManager.TriggerEvent("KI_goTo");
+        }
 
         
        
