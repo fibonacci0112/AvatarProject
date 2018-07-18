@@ -19,6 +19,23 @@ public class KI_Event_Trigger : MonoBehaviour {
         {
             EventManager.TriggerEvent("KI_goTo");
         }
+        if (Input.GetKeyDown("i"))
+        {
+            EventManager.TriggerEvent("KI_stop");
+        }
+        if(Input.GetKeyDown("o"))
+        {
+            EventManager.TriggerEvent("KI_wave");
+        }
+        if (Input.GetKeyDown("p"))
+        {
+            EventManager.TriggerEvent("KI_dance");
+        }
+
+
+
+
+
     }
    
 }
