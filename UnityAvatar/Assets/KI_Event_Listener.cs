@@ -6,17 +6,17 @@ using UnityEngine.Events;
 
 public class KI_Event_Listener : MonoBehaviour {
 
-    private UnityAction followListener;
-    private UnityAction patrolListener;
-    private UnityAction goToListener;
+    private UnityAction<string> followListener;
+    private UnityAction<string> patrolListener;
+    private UnityAction<string> goToListener;
    
     public GameObject KI;
 
     private void Awake()
     {
-        followListener = new UnityAction(Follow);
-        patrolListener = new UnityAction(Patrol);
-        goToListener = new UnityAction(GoTo);
+        followListener = Follow;
+        patrolListener = Patrol;
+        goToListener = GoTo;
         
 
         //ki = GameObject.FindGameObjectWithTag("KI");
@@ -35,7 +35,7 @@ public class KI_Event_Listener : MonoBehaviour {
         EventManager.StopListening("KI_patrol", patrolListener);
         EventManager.StopListening("KI_goTo", goToListener);
     }
-    private void Follow()
+    private void Follow(string a)
     {
        // ki = GameObject.FindGameObjectWithTag("KI");
         Debug.Log("KI follow activated");
@@ -44,7 +44,7 @@ public class KI_Event_Listener : MonoBehaviour {
         KI.GetComponent<goToWaypoint>().enabled = false;
     }
 
-    private void Patrol()
+    private void Patrol(string a)
     {
      //   KI = GameObject.FindGameObjectWithTag("KI");
         Debug.Log("KI patrol activated");
@@ -52,7 +52,7 @@ public class KI_Event_Listener : MonoBehaviour {
         KI.GetComponent<Assets.Code.ConnectedPatrol>().enabled = true;
         KI.GetComponent<goToWaypoint>().enabled = false;
     }
-    private void GoTo()
+    private void GoTo(string a)
     {
         Debug.Log("KI goTo activated");
         KI.GetComponent<NPCSimplePatrol>().enabled = false;

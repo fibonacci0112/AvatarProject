@@ -334,7 +334,7 @@ public class ExampleStreaming : MonoBehaviour
 
             if (table.Contains(keyword))
             {
-                EventManager.TriggerEvent("bla");
+              //  EventManager.TriggerEvent("bla", "bla");
                 Debug.Log("table keyword - " + keyword + " - found");
                 result = keyword;
                 flag = 0;

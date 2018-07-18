@@ -5,6 +5,6 @@ using UnityEngine;
 public class EventTriggerTest : MonoBehaviour {
 
 	void Update () {
-        EventManager.TriggerEvent("test");
+        EventManager.TriggerEvent("test", "bla");
 	}
 }
