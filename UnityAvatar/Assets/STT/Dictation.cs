@@ -7,14 +7,12 @@ using System.IO;
 
 public class Dictation : MonoBehaviour
 {
+    #region PLEASE SET THESE VARIABLES IN THE INSPECTOR
     [SerializeField]
     private Text m_Hypotheses;
 
     [SerializeField]
     private Text m_Recognitions;
-
-    [SerializeField]
-    private String m_keywordFilePath;
 
     private DictationRecognizer m_DictationRecognizer;
 
@@ -29,13 +27,10 @@ public class Dictation : MonoBehaviour
 
     [SerializeField]
     private List<m_Keyword> keywordinput;
+    #endregion
 
     void Start()
     {
-        if(m_keywordFilePath.Equals(""))
-        {
-            //TODO: use keywordfilepath to search for keyword file. if exists fill keywords
-        }
 
         CustomKeywordParser();
         KeywordProcessing("zeig mir einen schuh der rot ist");
@@ -82,6 +77,7 @@ public class Dictation : MonoBehaviour
 
     void KeywordProcessing(string text)
     {
+        Debug.Log(text);
         string[] words = text.Split(' ');
         List<string> greetings = new List<string> {"hallo", "hi", "hey"};
         List<string> search = new List<string>() { "suche", "such", "google", "schau", "schaue" };
@@ -120,8 +116,6 @@ public class Dictation : MonoBehaviour
             }
         }
 
-        //take out keyword
-        //words[Array.IndexOf(words, result)] = "";
         //parameter search
         string paramlist = "";
         switch (flag)
@@ -132,11 +126,14 @@ public class Dictation : MonoBehaviour
 
             case 1:
                 string suche = string.Join(" ", words);
-                Debug.Log(suche);
                 suche = suche.Substring(suche.IndexOf(result));
-                Debug.Log(suche);
                 suche = suche.Substring(result.Length + 1 );
                 Debug.Log(suche);
+                if (suche.Contains("nach"))
+                {
+                    suche = suche.Remove(0, 3); 
+                }
+                Debug.Log("Google suche nach: " + suche);
                 break;
 
             case 2:
@@ -144,9 +141,10 @@ public class Dictation : MonoBehaviour
                 {
                     paramlist += " " + keywords[result].Find(x => x.Equals(words[i]));
                 }
+
+                Debug.Log("params - " + paramlist + " - found");
                 break;
         }
-        Debug.Log("params - " + paramlist + " - found");
     }
 
     public void VoiceInput()
