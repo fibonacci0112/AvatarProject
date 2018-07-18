@@ -10,11 +10,7 @@ public class KI_Event_Listener : MonoBehaviour {
     private UnityAction patrolListener;
     private UnityAction goToListener;
    
-
     public GameObject KI;
-   
-
-   
 
     private void Awake()
     {
@@ -25,8 +21,6 @@ public class KI_Event_Listener : MonoBehaviour {
 
         //ki = GameObject.FindGameObjectWithTag("KI");
     }
-
-   
 
     void OnEnable()
     {
@@ -65,7 +59,4 @@ public class KI_Event_Listener : MonoBehaviour {
         KI.GetComponent<Assets.Code.ConnectedPatrol>().enabled = false;
         KI.GetComponent<goToWaypoint>().enabled = true;
     }
-
-       
-    
 }

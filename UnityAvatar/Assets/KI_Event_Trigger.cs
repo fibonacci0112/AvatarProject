@@ -19,11 +19,6 @@ public class KI_Event_Trigger : MonoBehaviour {
         {
             EventManager.TriggerEvent("KI_goTo");
         }
-
-        
-       
-
-
     }
    
 }

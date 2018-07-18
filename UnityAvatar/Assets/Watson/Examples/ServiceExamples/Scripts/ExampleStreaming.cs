@@ -287,6 +287,7 @@ public class ExampleStreaming : MonoBehaviour
 
     void KeywordProcessing(string text)
     {
+        events.testout(text);
         Debug.Log(text);
         string[] words = text.Split(' ');
         List<string> greetings = new List<string> { "hello", "hi", "hey" };
@@ -298,7 +299,7 @@ public class ExampleStreaming : MonoBehaviour
         List<string> search = new List<string>() { "search", "google", "look"};
         List<string> sparams = new List<string>();
         int flag = -1;
-
+        
 
         string result = "";
 
@@ -309,6 +310,7 @@ public class ExampleStreaming : MonoBehaviour
             if (greetings.Contains(keyword))
             {
                 Debug.Log("greeting keyword - " + keyword + " - found");
+               
                 result = keyword;
                 flag = 0;
                 break;
