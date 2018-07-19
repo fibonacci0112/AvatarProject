@@ -92,7 +92,6 @@ public class SpeechTest : MonoBehaviour {
                 outputValues = new List<string>() { "das habe ich nicht verstanden", "was", "bitte wiederhole das", "entschuldigung ich habe dich nicht verstanden" };
                 break;
         }
-
         string s = outputValues[Random.Range(0, outputValues.Count)];
         Debug.Log(s);
         if(voice!=null)

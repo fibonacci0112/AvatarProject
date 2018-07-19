@@ -31,17 +31,26 @@ public class KI_Event_Listener : MonoBehaviour {
     }
     private void Movement(string a)
     {
-        SpeechTest.VoiceOutput(a.Substring(3));
+        SpeechTest.VoiceOutput(a.Substring(6));
         KI.GetComponent<NPCSimplePatrol>().enabled = a[0].Equals('1');
         KI.GetComponent<Assets.Code.ConnectedPatrol>().enabled = a[1].Equals('1');
         KI.GetComponent<goToWaypoint>().enabled = a[2].Equals('1');
+        //KI.GetComponent<stop>().enabled = a[3].Equals('1');
+
+        //_animator.SetBool("dance", a[4].Equals('1'));
+        //_animator.SetBool("wave", a[5].Equals('1'));
     }
 
     private void Custom(string a)
     {
         SpeechTest.VoiceOutput(a.Substring(3));
-        KI.GetComponent<NPCSimplePatrol>().enabled = a[0].Equals('1');
-        KI.GetComponent<Assets.Code.ConnectedPatrol>().enabled = a[1].Equals('1');
-        KI.GetComponent<goToWaypoint>().enabled = a[2].Equals('1');
+        //richtiger verweis noetig
+        GameObject o = new GameObject();
+        MonoBehaviour[] c = o.GetComponents<MonoBehaviour>();
+
+        for (int i = 0; i < c.Length; i++)
+        {
+            c[i].enabled = a[i].Equals('1');
+        }
     }
 }
