@@ -59,6 +59,9 @@ public class NPCSimplePatrol : MonoBehaviour
             }
 
         }
+
+        n_animator.SetBool("dance", false);
+        n_animator.SetBool("wave", false);
     }
 
     public void Update()
@@ -66,11 +69,8 @@ public class NPCSimplePatrol : MonoBehaviour
         //Check if we're close to the destination.
         if (_travelling && _navMeshAgent.remainingDistance <= 1.0f)
         {
-            if (_travelling)
-            {
-                n_animator.SetBool("walking", false);
-            }
-            _travelling = false;
+            
+            
         
 
 
@@ -117,6 +117,7 @@ public class NPCSimplePatrol : MonoBehaviour
             if (_travelling)
             {
                 
+
                 n_animator.SetBool("walking", true);
                 
 
