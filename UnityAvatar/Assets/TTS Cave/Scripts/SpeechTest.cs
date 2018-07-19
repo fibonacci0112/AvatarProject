@@ -10,8 +10,7 @@ public class SpeechTest : MonoBehaviour {
 
     #region PLEASE SET THESE VARIABLES IN THE INSPECTOR
 
-    private Dictionary<string, List<string>> keywords;
-
+    private static Dictionary<string, List<string>> keywords;
     [System.Serializable]
     public struct m_Keyword
     {
@@ -63,6 +62,10 @@ public class SpeechTest : MonoBehaviour {
                 outputValues = new List<string>() { "bis bald", "auf wiedersehen", "machs gut", "tschüss" };
                 break;
 
+            case "follow":
+                outputValues = new List<string>() { "ok ich folge dir", "gerne", "hinterher", "ich laufe dir nach" };
+                break;
+
             case "stop":
                 outputValues = new List<string>() { "ok ich halte an", "ok ich bleib stehen", "ich stoppe", "dann bleib ich stehen" };
                 break;
@@ -83,9 +86,16 @@ public class SpeechTest : MonoBehaviour {
                 outputValues = new List<string>() { "ich führe eine google suche aus", "ok ich nutze google", "lass mich das für dich suchen", "ich suche das für dich" };
                 break;
 
+            case "nothing":
+                outputValues = new List<string>() { "" };
+                break;
+
             case "custom":
                 Debug.Log("cp:" + customparams);
-                outputValues = new List<string>() { "ich führe eine google suche aus", "ok ich nutze google", "lass mich das für dich suchen", "ich suche das für dich" };
+                if(!keywords.TryGetValue(customparams, out outputValues))
+                {
+                    outputValues = new List<string>() { "" };
+                }
                 break;
 
             default:
@@ -93,7 +103,6 @@ public class SpeechTest : MonoBehaviour {
                 break;
         }
         string s = outputValues[Random.Range(0, outputValues.Count)];
-        Debug.Log(s);
         if(voice!=null)
             voice.speak(s);
     }

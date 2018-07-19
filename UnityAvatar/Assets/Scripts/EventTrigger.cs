@@ -28,6 +28,4 @@ public class EventTrigger : MonoBehaviour
             n_animator.SetTrigger("zombie");
         }
     }
-   
-
 }

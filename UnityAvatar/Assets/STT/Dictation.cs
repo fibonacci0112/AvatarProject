@@ -17,14 +17,14 @@ public class Dictation : MonoBehaviour
 
     private DictationRecognizer m_DictationRecognizer;
 
-    private Dictionary<string, List<string>> keywords;
+    private Dictionary<string, string> keywords;
     private Boolean flag = false;
 
     [Serializable]
     public struct m_Keyword
     {
         public string key;
-        public List<string> param;
+        public string param;
     }
 
     [SerializeField]
@@ -52,7 +52,7 @@ public class Dictation : MonoBehaviour
             {
                 flag = true;
                 m_DictationRecognizer.Start();
-                EventManager.TriggerEvent("KI_movement", "000ute");
+                EventManager.TriggerEvent("KI_movement", "000100ute");
             }
         };
 
@@ -83,7 +83,7 @@ public class Dictation : MonoBehaviour
 
     void CustomKeywordParser()
     {
-        keywords = new Dictionary<string, List<string>>();
+        keywords = new Dictionary<string, string>();
 
         foreach (m_Keyword word in keywordinput)
         {
@@ -97,6 +97,7 @@ public class Dictation : MonoBehaviour
         List<string> greetings = new List<string> { "hallo", "hi", "hey" };
         List<string> goodbye = new List<string> { "tschüss", "wiedersehen" };
         List<string> stop = new List<string> { "stop", "stopp", "halt", "stehen" };
+        List<string> follow = new List<string> { "folge", "folg", "hinterher"};
         List<string> walk = new List<string> { "lauf", "laufe"};
         List<string> table = new List<string> { "tisch" };
         List<string> animate = new List<string> { "tanz" };
@@ -112,50 +113,49 @@ public class Dictation : MonoBehaviour
 
             if (greetings.Contains(keyword))
             {
-                Debug.Log("greeting keyword - " + keyword + " - found");
-                EventManager.TriggerEvent("KI_movement", "000000hello");
+                EventManager.TriggerEvent("KI_movement", "000001hello");
                 break;
             }
 
             if (goodbye.Contains(keyword))
             {
-                Debug.Log("goodbye keyword - " + keyword + " - found");
-                EventManager.TriggerEvent("KI_movement", "000000bye");
+                EventManager.TriggerEvent("KI_movement", "000001bye");
                 break;
             }
 
             if (stop.Contains(keyword))
             {
-                Debug.Log("stop keyword - " + keyword + " - found");
-                EventManager.TriggerEvent("KI_movement", "000000stop");
+                EventManager.TriggerEvent("KI_movement", "000100stop");
+                break;
+            }
+
+            if (follow.Contains(keyword))
+            {
+                EventManager.TriggerEvent("KI_movement", "100000follow");
                 break;
             }
 
             if (walk.Contains(keyword))
             {
-                Debug.Log("walk keyword - " + keyword + " - found");
-                EventManager.TriggerEvent("KI_movement", "000000walk");
+                EventManager.TriggerEvent("KI_movement", "010000walk");
                 break;
             }
 
             if (table.Contains(keyword))
             {
 
-                Debug.Log("table keyword - " + keyword + " - found");
-                EventManager.TriggerEvent("KI_movement", "000000table");
+                EventManager.TriggerEvent("KI_movement", "001000table");
                 break;
             }
 
             if (animate.Contains(keyword))
             {
-                Debug.Log("animate keyword - " + keyword + " - found");
-                EventManager.TriggerEvent("KI_movement", "000000animate");
+                EventManager.TriggerEvent("KI_movement", "000010animate");
                 break;
             }
 
             if (search.Contains(keyword))
             {
-                Debug.Log("search keyword - " + keyword + " - found");
                 result = keyword;
                 flag = 1;
                 break;
@@ -163,20 +163,19 @@ public class Dictation : MonoBehaviour
 
             if (keywords.ContainsKey(keyword))
             {
-                Debug.Log("custom keyword - " + keyword + " - found");
                 result = keyword;
                 flag = 2;
                 break;
             }
             else
             {
-                EventManager.TriggerEvent("KI_movement", "000000nothing");
+                EventManager.TriggerEvent("KI_movement", "000100nothing");
                 break;
             }
         }
 
         //parameter search
-        string paramlist = "";
+        string param = "0";
         switch (flag)
         {
             case 0:
@@ -188,7 +187,7 @@ public class Dictation : MonoBehaviour
                 string suche = string.Join(" ", words);
                 
                 suche = suche.Substring(suche.IndexOf(result));
-                Debug.Log(suche);
+                
                 if (suche.Equals(result))
                     suche += "nichts";
                 suche = suche.Substring(result.Length + 1);
@@ -197,17 +196,14 @@ public class Dictation : MonoBehaviour
                 {
                     suche = suche.Remove(0, 3);
                 }
-                EventManager.TriggerEvent("KI_movement", "000search");
+                EventManager.TriggerEvent("KI_movement", "000100search");
                 break;
 
             case 2:
-                //parameterliste verwenden um skripte an und auszuschalten 0011010
-                for (int i = 0; i < words.Length; i++)
-                {
-                    paramlist += " " + keywords[result].Find(x => x.Equals(words[i]));
-                }
-
-                EventManager.TriggerEvent("KI_custom", paramlist + "custom" + result);
+                keywords.TryGetValue(result, out param);
+                EventManager.TriggerEvent("KI_movement", "000100stop");
+                EventManager.TriggerEvent("KI_movement", "000000nothing");
+                EventManager.TriggerEvent("KI_custom", param + "custom" + result);
                 break;
         }
     }
