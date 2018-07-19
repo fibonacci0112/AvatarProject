@@ -15,7 +15,6 @@ public class events : MonoBehaviour {
     void Start ()
     {
         Debug.Log("press a and b for voice input and output");
-        output = "blabla";
 	}
 	
 	// Update is called once per frame
@@ -26,16 +25,5 @@ public class events : MonoBehaviour {
             if (voiceIn != null)
                 voiceIn();
         }
-
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            if (voiceOut != null)
-                voiceOut(output);
-        }
-    }
-
-    public static void testout(string test)
-    {
-        voiceOut(test);
     }
 }

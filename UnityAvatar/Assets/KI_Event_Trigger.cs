@@ -8,16 +8,16 @@ public class KI_Event_Trigger : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown("t"))
         {
-            EventManager.TriggerEvent("KI_follow", "bla");
+            EventManager.TriggerEvent("KI_movement", "100follow");
         }
 
         if (Input.GetKeyDown("z"))
         {
-            EventManager.TriggerEvent("KI_patrol", "bla");
+            EventManager.TriggerEvent("KI_movement", "010patrol");
         }
         if(Input.GetKeyDown("u"))
         {
-            EventManager.TriggerEvent("KI_goTo", "bla");
+            EventManager.TriggerEvent("KI_movement", "001walk");
         }
     }
    
