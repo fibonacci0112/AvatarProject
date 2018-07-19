@@ -60,8 +60,7 @@ public class NPCSimplePatrol : MonoBehaviour
 
         }
 
-        n_animator.SetBool("dance", false);
-        n_animator.SetBool("wave", false);
+       
     }
 
     public void Update()
@@ -93,6 +92,8 @@ public class NPCSimplePatrol : MonoBehaviour
         //Instead if we're waiting.
         if (_waiting)
         {
+            n_animator.SetBool("dance", false);
+            n_animator.SetBool("wave", false);
             n_animator.SetBool("walking", false);
             _waitTimer += Time.deltaTime;
             if (_waitTimer >= _totalWaitTime)
