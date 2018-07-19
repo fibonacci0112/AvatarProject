@@ -84,7 +84,6 @@ public class goToWaypoint : MonoBehaviour {
             }
             else
             {
-                //ChangePatrolPoint();
                 SetDestination();
             }
 
@@ -103,7 +102,6 @@ public class goToWaypoint : MonoBehaviour {
 
                 _waiting = false;
 
-                //ChangePatrolPoint();
                 SetDestination();
             }
         }
