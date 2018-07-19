@@ -6,57 +6,42 @@ using UnityEngine.Events;
 
 public class KI_Event_Listener : MonoBehaviour {
 
-    private UnityAction<string> followListener;
-    private UnityAction<string> patrolListener;
-    private UnityAction<string> goToListener;
-   
+    private UnityAction<string> moveListener;
+    private UnityAction<string> customListener;
+
     public GameObject KI;
 
     private void Awake()
     {
-        followListener = Follow;
-        patrolListener = Patrol;
-        goToListener = GoTo;
-        
-
-        //ki = GameObject.FindGameObjectWithTag("KI");
+        moveListener = Movement;
+        customListener = Custom;
     }
 
     void OnEnable()
     {
-        EventManager.StartListening("KI_follow", followListener);
-        EventManager.StartListening("KI_patrol", patrolListener);
-        EventManager.StartListening("KI_goTo", goToListener);
+        EventManager.StartListening("KI_movement", moveListener);
+        EventManager.StartListening("KI_custom", customListener);
     }
 
     private void OnDisable()
     {
-        EventManager.StopListening("KI_follow", followListener);
-        EventManager.StopListening("KI_patrol", patrolListener);
-        EventManager.StopListening("KI_goTo", goToListener);
+        EventManager.StopListening("KI_movement", moveListener);
+        EventManager.StopListening("KI_custom", customListener);
+
     }
-    private void Follow(string a)
+    private void Movement(string a)
     {
-       // ki = GameObject.FindGameObjectWithTag("KI");
-        Debug.Log("KI follow activated");
-        KI.GetComponent<NPCSimplePatrol>().enabled = true;
-        KI.GetComponent<Assets.Code.ConnectedPatrol>().enabled = false;
-        KI.GetComponent<goToWaypoint>().enabled = false;
+        SpeechTest.VoiceOutput(a.Substring(3));
+        KI.GetComponent<NPCSimplePatrol>().enabled = a[0].Equals('1');
+        KI.GetComponent<Assets.Code.ConnectedPatrol>().enabled = a[1].Equals('1');
+        KI.GetComponent<goToWaypoint>().enabled = a[2].Equals('1');
     }
 
-    private void Patrol(string a)
+    private void Custom(string a)
     {
-     //   KI = GameObject.FindGameObjectWithTag("KI");
-        Debug.Log("KI patrol activated");
-        KI.GetComponent<NPCSimplePatrol>().enabled = false;
-        KI.GetComponent<Assets.Code.ConnectedPatrol>().enabled = true;
-        KI.GetComponent<goToWaypoint>().enabled = false;
-    }
-    private void GoTo(string a)
-    {
-        Debug.Log("KI goTo activated");
-        KI.GetComponent<NPCSimplePatrol>().enabled = false;
-        KI.GetComponent<Assets.Code.ConnectedPatrol>().enabled = false;
-        KI.GetComponent<goToWaypoint>().enabled = true;
+        SpeechTest.VoiceOutput(a.Substring(3));
+        KI.GetComponent<NPCSimplePatrol>().enabled = a[0].Equals('1');
+        KI.GetComponent<Assets.Code.ConnectedPatrol>().enabled = a[1].Equals('1');
+        KI.GetComponent<goToWaypoint>().enabled = a[2].Equals('1');
     }
 }

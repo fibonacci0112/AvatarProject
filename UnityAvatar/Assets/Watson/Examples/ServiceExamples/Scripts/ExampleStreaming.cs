@@ -287,8 +287,7 @@ public class ExampleStreaming : MonoBehaviour
 
     void KeywordProcessing(string text)
     {
-        events.testout(text);
-        Debug.Log(text);
+
         string[] words = text.Split(' ');
         List<string> greetings = new List<string> { "hello", "hi", "hey" };
         List<string> goodbye = new List<string> { "goodbye", "bye"};
