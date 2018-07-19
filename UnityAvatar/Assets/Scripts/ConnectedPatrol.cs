@@ -73,6 +73,9 @@ namespace Assets.Code
 
                 SetDestination();
             }
+
+            n_animator.SetBool("dance", false);
+            n_animator.SetBool("wave", false);
         }
 
         public void Update()
@@ -111,6 +114,7 @@ namespace Assets.Code
                 {
                     _waiting = false;
 
+                    
                     SetDestination();
                 }
             }

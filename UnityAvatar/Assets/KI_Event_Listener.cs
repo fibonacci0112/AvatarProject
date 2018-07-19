@@ -35,7 +35,9 @@ public class KI_Event_Listener : MonoBehaviour {
         KI.GetComponent<NPCSimplePatrol>().enabled = a[0].Equals('1');
         KI.GetComponent<Assets.Code.ConnectedPatrol>().enabled = a[1].Equals('1');
         KI.GetComponent<goToWaypoint>().enabled = a[2].Equals('1');
-        //KI.GetComponent<stop>().enabled = a[3].Equals('1');
+        KI.GetComponent<stop>().enabled = a[3].Equals('1');
+        KI.GetComponent<dance>().enabled = a[4].Equals('1');
+        KI.GetComponent<wave>().enabled = a[5].Equals('1');
 
         //_animator.SetBool("dance", a[4].Equals('1'));
         //_animator.SetBool("wave", a[5].Equals('1'));
