@@ -68,11 +68,13 @@ public class NPCSimplePatrol : MonoBehaviour
         //Check if we're close to the destination.
         if (_travelling && _navMeshAgent.remainingDistance <= 1.0f)
         {
-            
-            
-        
 
 
+            if (_travelling)
+            {
+                n_animator.SetBool("walking", false);
+            }
+            _travelling = false;
 
             //If we're going to wait, then wait.
             if (_patrolWaiting)

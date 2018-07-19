@@ -9,15 +9,21 @@ public class dance : MonoBehaviour {
     Rigidbody rb;
     bool _wave;
     Vector3 _pos;
-    // Use this for initialization
-    void Start()
+
+
+    private void OnEnable()
     {
         _animator = KI.GetComponentInChildren<Animator>();
 
         _pos = KI.transform.position;
         _wave = true;
 
-        
+        _animator.SetBool("walking", false);
+
+        _animator.SetBool("wave", false);
+
+        _animator.SetBool("dance", true);
+
     }
 
     // Update is called once per frame
@@ -26,11 +32,7 @@ public class dance : MonoBehaviour {
 
         
 
-        _animator.SetBool("walking", false);
-
-        _animator.SetBool("wave", false);
-
-        _animator.SetBool("dance", true);
+        
 
         KI.transform.position = _pos;
 

@@ -9,32 +9,21 @@ public class stop : MonoBehaviour {
     Rigidbody rb;
     
     Vector3 _pos;
-    // Use this for initialization
-    void Start ()
+
+    private void OnEnable()
     {
         _animator = KI.GetComponentInChildren<Animator>();
-        
         _pos = KI.transform.position;
-
-       
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        
-       
 
         _animator.SetBool("walking", false);
 
         _animator.SetBool("dance", false);
-
         _animator.SetBool("wave", false);
 
-        KI.transform.position = _pos;
-
-        
-        
     }
-   
+
+    private void Update()
+    {
+        KI.transform.position = _pos;
+    }
 }
