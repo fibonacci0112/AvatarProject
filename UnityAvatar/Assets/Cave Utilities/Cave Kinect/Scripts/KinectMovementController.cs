@@ -92,7 +92,7 @@ public class KinectMovementController : MonoBehaviour {
 			//error.Log ("Wip-Wert: " + this.Kinect.getWipSpeed ());
 			if (useWip == true) {
 				if (!(float.IsNaN (direction.x) || float.IsNaN (direction.y) || float.IsNaN (direction.z))) {
-					player.GetComponent<CharacterController> ().Move (direction * -this.Kinect.getWipSpeed () * Time.deltaTime);
+					player.GetComponent<CharacterController> ().Move (direction * -this.Kinect.getWipSpeed () * Time.deltaTime*8);
 				}
 			}
 		}
