@@ -29,7 +29,7 @@ public class KI_Event_Trigger : MonoBehaviour {
         }
         if (Input.GetKeyDown("p"))
         {
-            EventManager.TriggerEvent("KI_movement", "000001hello");
+            EventManager.TriggerEvent("KI_custom", "10customhund");
         }
     }
    

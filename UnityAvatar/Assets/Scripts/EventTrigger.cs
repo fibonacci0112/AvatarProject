@@ -25,6 +25,4 @@ public class EventTrigger : MonoBehaviour
             EventManager.TriggerEvent("KI_movement", "000010animate");
         }
     }
-   
-
 }
