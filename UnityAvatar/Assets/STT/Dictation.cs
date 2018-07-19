@@ -200,11 +200,13 @@ public class Dictation : MonoBehaviour
                 break;
 
             case 2:
+                //parameterliste verwenden um skripte an und auszuschalten 0011010
                 for (int i = 0; i < words.Length; i++)
                 {
                     paramlist += " " + keywords[result].Find(x => x.Equals(words[i]));
                 }
-                EventManager.TriggerEvent("KI_custom", "000custom" + result + paramlist);
+
+                EventManager.TriggerEvent("KI_custom", paramlist + "custom" + result);
                 break;
         }
     }
