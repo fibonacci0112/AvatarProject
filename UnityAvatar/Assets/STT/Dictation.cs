@@ -200,8 +200,8 @@ public class Dictation : MonoBehaviour
 
             case 2:
                 keywords.TryGetValue(result, out param);
-                EventManager.TriggerEvent("KI_movement", "000100stop");
-                EventManager.TriggerEvent("KI_movement", "000000nothing");
+                EventManager.TriggerEvent("KI_movement", "000100nothing");
+
                 EventManager.TriggerEvent("KI_custom", param + "custom" + result);
                 break;
         }
