@@ -10,7 +10,7 @@ public class RayTeleport : MonoBehaviour
 
     private LineRenderer laserLine;										// Reference to the LineRenderer component which will display our laserline
     public RaycastHit ray;
-    public GameObject player;
+    public CharacterController player;
 
     /*The Instance of the Wii Controller*/
     private WiiController wii;
@@ -24,7 +24,7 @@ public class RayTeleport : MonoBehaviour
         laserLine = GetComponent<LineRenderer>();
 
         //rich = GetComponent<Rigidbody>();  // GetGameObject<>
-        player = GetComponentInParent<GameObject>();
+        player = GetComponentInParent<CharacterController>();
 
 
         wii = WiiController.Instance;
@@ -55,8 +55,8 @@ public class RayTeleport : MonoBehaviour
     void Update()
     {
 
-        if ((Input.GetButton("Fire1")) && laser == false)
-        //if (wii.holdButtonOne() == true && laser == false)
+        //if ((Input.GetButton("Fire1")) && laser == false)
+        if (wii.holdButtonOne() == true && laser == false)
         {
             laser = true;
         }
@@ -91,8 +91,8 @@ public class RayTeleport : MonoBehaviour
                     laserLine.SetPosition(1, hit.point);
 
 
-                if (Input.GetButton("Fire2"))
-                //if (wii.holdButtonTwo() == true)
+                //if (Input.GetButton("Fire2"))
+                if (wii.holdButtonTwo() == true)
                 {
 
                     Teleport();

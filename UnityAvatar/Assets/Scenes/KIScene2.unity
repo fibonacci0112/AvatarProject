@@ -7102,7 +7102,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunEnd: {fileID: 120782660}
   laser: 0
-  player: {fileID: 2132992933}
+  player: {fileID: 2086267331}
+--- !u!143 &2086267331 stripped
+CharacterController:
+  m_PrefabParentObject: {fileID: 14371662, guid: a4b550c07db694112b4ed28fb741df21,
+    type: 2}
+  m_PrefabInternal: {fileID: 2086267324}
 --- !u!1 &2120581475
 GameObject:
   m_ObjectHideFlags: 0
