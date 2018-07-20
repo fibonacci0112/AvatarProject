@@ -12,6 +12,7 @@ public class PushRigidbodies : MonoBehaviour {
 
 	void OnControllerColliderHit (ControllerColliderHit hit)
 	{
+        Debug.Log("colliderentered");
 		Rigidbody body = hit.collider.attachedRigidbody;
 		
 		// no rigidbody
