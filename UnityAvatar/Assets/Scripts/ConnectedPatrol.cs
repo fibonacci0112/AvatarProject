@@ -107,8 +107,7 @@ namespace Assets.Code
             //Instead if we're waiting.
             if (_waiting)
             {
-                n_animator.SetBool("wave", false);
-                n_animator.SetBool("dance", false);
+               
                 n_animator.SetBool("walking", false);
 
                 _waitTimer += Time.deltaTime;
@@ -137,7 +136,8 @@ namespace Assets.Code
             _travelling = true;
             if (_travelling)
             {
-                
+                n_animator.SetBool("wave", false);
+                n_animator.SetBool("dance", false);
                 n_animator.SetBool("walking", true);
 
             }

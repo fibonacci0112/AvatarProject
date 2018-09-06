@@ -93,8 +93,7 @@ public class goToWaypoint : MonoBehaviour {
         //Instead if we're waiting.
         if (_waiting)
         {
-            n_animator.SetBool("wave", false);
-            n_animator.SetBool("dance", false);
+            
             n_animator.SetBool("walking", false);
             _waitTimer += Time.deltaTime;
             if (_waitTimer >= _totalWaitTime)
@@ -117,7 +116,8 @@ public class goToWaypoint : MonoBehaviour {
 
             if (_travelling)
             {
-
+                n_animator.SetBool("wave", false);
+                n_animator.SetBool("dance", false);
                 n_animator.SetBool("walking", true);
 
 
